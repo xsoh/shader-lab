@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next"
+import { headers } from "next/headers"
 import { Suspense, type PropsWithChildren } from "react"
 import {
   APP_BASE_URL,
@@ -9,6 +10,7 @@ import {
 } from "@/lib/app"
 import { cn } from "@/lib/cn"
 import { fontsVariable } from "@/lib/fonts"
+import { parseAcceptLanguage } from "@/lib/locale"
 import "@/app/globals.css"
 import { Analytics } from "@vercel/analytics/next"
 
@@ -75,11 +77,16 @@ export const viewport: Viewport = {
   themeColor: "#080808",
 }
 
-export default function RootLayout({ children }: PropsWithChildren) {
+export default async function RootLayout({ children }: PropsWithChildren) {
+  const headersList = await headers()
+  const { lang, dir } = parseAcceptLanguage(
+    headersList.get("accept-language")
+  )
+
   return (
     <html
-      lang="en"
-      dir="ltr"
+      lang={lang}
+      dir={dir}
       className={cn(fontsVariable)}
       suppressHydrationWarning
     >

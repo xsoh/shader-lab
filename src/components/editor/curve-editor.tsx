@@ -462,7 +462,7 @@ function CurveEditorContent({ easing, onChange }: CurveEditorProps) {
                 {group.presets.map((preset) => (
                   <button
                     className={cn(
-                      "inline-flex items-center gap-2 rounded-[10px] border px-2.5 py-2 text-left transition-[background-color,border-color,color,transform] duration-140 ease-[var(--ease-out-cubic)] hover:bg-white/6 hover:border-white/10 active:scale-[0.985]",
+                      "inline-flex items-center gap-2 rounded-[10px] border px-2.5 py-2 text-start transition-[background-color,border-color,color,transform] duration-140 ease-[var(--ease-out-cubic)] hover:bg-white/6 hover:border-white/10 active:scale-[0.985]",
                       activePreset === preset.name
                         ? "border-white/14 bg-white/8 text-[var(--ds-color-text-primary)]"
                         : "border-white/6 text-[var(--ds-color-text-secondary)]"

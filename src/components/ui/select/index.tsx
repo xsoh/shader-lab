@@ -73,7 +73,7 @@ export function Select({
         className={cn(
           isIconTrigger
             ? "inline-flex items-center justify-center leading-none text-inherit"
-            : "min-w-0 flex-1 truncate text-left text-[11px] leading-[14px] text-inherit data-[placeholder]:text-[var(--ds-color-text-secondary)]",
+            : "min-w-0 flex-1 truncate text-start text-[11px] leading-[14px] text-inherit data-[placeholder]:text-[var(--ds-color-text-secondary)]",
           valueClassName
         )}
         placeholder={placeholder}

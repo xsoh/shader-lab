@@ -628,8 +628,8 @@ export function PropertiesSidebar() {
       {rightSidebarVisible ? (
         <FloatingDesktopPanel
           id="properties"
-          resolvePosition={({ panelWidth, viewportWidth }) => ({
-            left: viewportWidth - panelWidth - 16,
+          resolvePosition={({ dir, panelWidth, viewportWidth }) => ({
+            left: dir === "rtl" ? 16 : viewportWidth - panelWidth - 16,
             top: 76,
           })}
         >

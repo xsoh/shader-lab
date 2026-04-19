@@ -23,6 +23,7 @@ type FloatingDesktopPanelProps = {
   }) => ReactNode
   id: FloatingPanelId
   resolvePosition: (args: {
+    dir: "ltr" | "rtl"
     panelHeight: number
     panelWidth: number
     viewportHeight: number
@@ -159,8 +160,14 @@ export function FloatingDesktopPanel({
   const isReady =
     viewportSize.width > 0 && panelSize.width > 0 && panelSize.height > 0
 
+  const dir =
+    typeof document !== "undefined"
+      ? ((document.documentElement.dir || "ltr") as "ltr" | "rtl")
+      : "ltr"
+
   const basePosition = isReady
     ? resolvePosition({
+        dir,
         panelHeight: panelSize.height,
         panelWidth: panelSize.width,
         viewportHeight: viewportSize.height,

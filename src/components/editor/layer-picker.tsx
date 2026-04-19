@@ -327,7 +327,7 @@ function EffectCard({
         />
       ) : null}
       <button
-        className="flex w-full origin-center cursor-pointer flex-col rounded-[10px] border border-white/6 bg-[rgb(255_255_255_/_0.02)] text-left transition-[transform,border-color,background-color,box-shadow] duration-[200ms] ease-[cubic-bezier(0.32,0.72,0,1)] hover:border-white/14 hover:bg-[rgb(255_255_255_/_0.05)] hover:shadow-[0_10px_30px_rgb(0_0_0_/_0.18),inset_0_1px_0_rgb(255_255_255_/_0.04)] focus-visible:outline focus-visible:outline-1 focus-visible:outline-[var(--ds-border-active)] focus-visible:outline-offset-2 active:scale-[0.97]"
+        className="flex w-full origin-center cursor-pointer flex-col rounded-[10px] border border-white/6 bg-[rgb(255_255_255_/_0.02)] text-start transition-[transform,border-color,background-color,box-shadow] duration-[200ms] ease-[cubic-bezier(0.32,0.72,0,1)] hover:border-white/14 hover:bg-[rgb(255_255_255_/_0.05)] hover:shadow-[0_10px_30px_rgb(0_0_0_/_0.18),inset_0_1px_0_rgb(255_255_255_/_0.04)] focus-visible:outline focus-visible:outline-1 focus-visible:outline-[var(--ds-border-active)] focus-visible:outline-offset-2 active:scale-[0.97]"
         onClick={() => onSelect(item.value)}
         type="button"
       >
