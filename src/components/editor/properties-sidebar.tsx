@@ -35,6 +35,8 @@ import {
 } from "./properties-sidebar-utils"
 import { SceneConfigContent } from "./scene-config-content"
 
+const PANEL_EDGE_OFFSET = 16
+
 export function PropertiesSidebar() {
   const reduceMotion = useReducedMotion() ?? false
   const [expandedParamGroups, setExpandedParamGroups] = useState<
@@ -629,7 +631,10 @@ export function PropertiesSidebar() {
         <FloatingDesktopPanel
           id="properties"
           resolvePosition={({ dir, panelWidth, viewportWidth }) => ({
-            left: dir === "rtl" ? 16 : viewportWidth - panelWidth - 16,
+            left:
+              dir === "rtl"
+                ? PANEL_EDGE_OFFSET
+                : viewportWidth - panelWidth - PANEL_EDGE_OFFSET,
             top: 76,
           })}
         >

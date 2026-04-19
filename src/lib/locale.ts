@@ -4,16 +4,27 @@ const RTL_LANGUAGES = new Set([
   "fa", // Farsi/Persian
   "ur", // Urdu
   "dv", // Dhivehi
-  "ku", // Kurdish
   "ps", // Pashto
   "sd", // Sindhi
   "yi", // Yiddish
 ])
 
+// Scripts that are always RTL regardless of language
+const RTL_SCRIPTS = new Set(["Arab", "Hebr", "Thaa", "Tfng", "Syrc"])
+
 export type TextDirection = "ltr" | "rtl"
 
 export function getLanguageDirection(lang: string): TextDirection {
-  const primary = lang.split("-")[0].toLowerCase()
+  const parts = lang.split("-")
+  const primary = parts[0].toLowerCase()
+
+  // Check for an explicit script subtag (e.g. "ku-Arab" → RTL, "ku-Latn" → LTR)
+  // Script subtags are 4 letters with title case (e.g. "Arab", "Latn")
+  const scriptSubtag = parts.find((p) => /^[A-Z][a-z]{3}$/.test(p))
+  if (scriptSubtag) {
+    return RTL_SCRIPTS.has(scriptSubtag) ? "rtl" : "ltr"
+  }
+
   return RTL_LANGUAGES.has(primary) ? "rtl" : "ltr"
 }
 

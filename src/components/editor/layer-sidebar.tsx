@@ -43,6 +43,8 @@ import type { AssetKind, EditorAsset, EditorLayer } from "@/types/editor"
 
 type LayerAction = "delete" | "reset"
 
+const PANEL_EDGE_OFFSET = 16
+
 const thumbnailBaseClassName =
   "relative size-7 overflow-hidden rounded-[var(--ds-radius-thumb)] border border-white/6"
 
@@ -734,7 +736,9 @@ export function LayerSidebar() {
           id="layers"
           resolvePosition={({ dir, panelWidth, viewportWidth }) => ({
             left:
-              dir === "rtl" ? viewportWidth - panelWidth - 16 : 16,
+              dir === "rtl"
+                ? viewportWidth - panelWidth - PANEL_EDGE_OFFSET
+                : PANEL_EDGE_OFFSET,
             top: 76,
           })}
         >
