@@ -25,9 +25,9 @@ const typographyVariants = cva("m-0", {
       onLight: "text-[var(--ds-color-text-on-light)]",
     },
     align: {
-      left: "text-left",
+      left: "text-start",
       center: "text-center",
-      right: "text-right",
+      right: "text-end",
     },
   },
   defaultVariants: {

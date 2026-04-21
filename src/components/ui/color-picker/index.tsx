@@ -327,7 +327,7 @@ export function ColorPicker({
   return (
     <div className={cn("w-[132px]", className)}>
       <button
-        className="grid min-h-8 w-full cursor-pointer grid-cols-[24px_minmax(0,1fr)] items-center gap-2 rounded-[var(--ds-radius-control)] border border-[var(--ds-border-divider)] bg-[var(--ds-color-surface-control)] px-2 pt-1 pr-2 pb-1 pl-1 text-[var(--ds-color-text-secondary)] transition-[background-color,border-color,transform] duration-160 ease-[var(--ease-out-cubic)] hover:bg-white/8 hover:border-[var(--ds-border-hover)] focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-[var(--ds-border-active)] data-[open]:bg-white/8 data-[open]:border-[var(--ds-border-active)]"
+        className="grid min-h-8 w-full cursor-pointer grid-cols-[24px_minmax(0,1fr)] items-center gap-2 rounded-[var(--ds-radius-control)] border border-[var(--ds-border-divider)] bg-[var(--ds-color-surface-control)] py-1 ps-1 pe-2 text-[var(--ds-color-text-secondary)] transition-[background-color,border-color,transform] duration-160 ease-[var(--ease-out-cubic)] hover:bg-white/8 hover:border-[var(--ds-border-hover)] focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-[var(--ds-border-active)] data-[open]:bg-white/8 data-[open]:border-[var(--ds-border-active)]"
         data-open={isOpen ? "" : undefined}
         onClick={() => setIsOpen((current) => !current)}
         ref={triggerRef}
@@ -337,7 +337,7 @@ export function ColorPicker({
           className="h-6 w-6 rounded-[var(--ds-radius-thumb)] border border-white/8 shadow-[inset_0_0_0_1px_rgb(0_0_0_/_0.12)]"
           style={{ backgroundColor: inputValue }}
         />
-        <span className="overflow-hidden text-ellipsis whitespace-nowrap text-left font-[var(--ds-font-mono)] text-[11px] leading-[14px] uppercase">
+        <span className="overflow-hidden text-ellipsis whitespace-nowrap text-start font-[var(--ds-font-mono)] text-[11px] leading-[14px] uppercase">
           {inputValue}
         </span>
       </button>
@@ -404,7 +404,7 @@ export function ColorPicker({
                     type="text"
                     value={inputValue}
                   />
-                  <span className="text-right font-[var(--ds-font-sans)] text-[10px] leading-3 text-[var(--ds-color-text-muted)] uppercase">
+                  <span className="text-end font-[var(--ds-font-sans)] text-[10px] leading-3 text-[var(--ds-color-text-muted)] uppercase">
                     HEX
                   </span>
                 </div>

@@ -1349,7 +1349,7 @@ export function EditorTimelineOverlay() {
                             >
                               <button
                                 className={cn(
-                                  "flex min-h-8 min-w-0 flex-1 cursor-pointer items-center gap-[10px] rounded-[10px] border border-transparent px-[10px] text-left transition-[background-color,border-color,color,transform,opacity] duration-160 ease-[var(--ease-out-cubic)] hover:bg-white/4 hover:border-white/5 active:scale-[0.995]",
+                                  "flex min-h-8 min-w-0 flex-1 cursor-pointer items-center gap-[10px] rounded-[10px] border border-transparent px-[10px] text-start transition-[background-color,border-color,color,transform,opacity] duration-160 ease-[var(--ease-out-cubic)] hover:bg-white/4 hover:border-white/5 active:scale-[0.995]",
                                   !trackEnabled && hasTrack && "opacity-60",
                                 )}
                                 onClick={() => {

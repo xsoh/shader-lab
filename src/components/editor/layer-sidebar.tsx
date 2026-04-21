@@ -43,6 +43,8 @@ import type { AssetKind, EditorAsset, EditorLayer } from "@/types/editor"
 
 type LayerAction = "delete" | "reset"
 
+const PANEL_EDGE_OFFSET = 16
+
 const thumbnailBaseClassName =
   "relative size-7 overflow-hidden rounded-[var(--ds-radius-thumb)] border border-white/6"
 
@@ -214,7 +216,7 @@ const LayerListItem = memo(function LayerListItem({
           </HoverTooltip>
 
           <button
-            className="grid min-w-0 cursor-pointer grid-cols-[28px_minmax(0,1fr)] items-center gap-[var(--ds-space-2)] bg-transparent p-0 text-left text-inherit"
+            className="grid min-w-0 cursor-pointer grid-cols-[28px_minmax(0,1fr)] items-center gap-[var(--ds-space-2)] bg-transparent p-0 text-start text-inherit"
             onClick={(event) => onSelectLayer(layer.id, event)}
             type="button"
           >
@@ -323,7 +325,7 @@ const LayerListItem = memo(function LayerListItem({
         </HoverTooltip>
 
         <button
-          className="grid min-w-0 cursor-pointer grid-cols-[28px_minmax(0,1fr)] items-center gap-[var(--ds-space-2)] bg-transparent p-0 text-left text-inherit"
+          className="grid min-w-0 cursor-pointer grid-cols-[28px_minmax(0,1fr)] items-center gap-[var(--ds-space-2)] bg-transparent p-0 text-start text-inherit"
           onClick={(event) => onSelectLayer(layer.id, event)}
           type="button"
         >
@@ -670,7 +672,7 @@ export function LayerSidebar() {
           )}
           variant="panel"
         >
-          <div className="flex min-h-11 items-center justify-between border-[var(--ds-border-divider)] border-b pr-3 pl-[var(--ds-space-4)]">
+          <div className="flex min-h-11 items-center justify-between border-[var(--ds-border-divider)] border-b pe-3 ps-[var(--ds-space-4)]">
             <Typography
               className="uppercase"
               tone="secondary"
@@ -732,8 +734,11 @@ export function LayerSidebar() {
       {leftSidebarVisible ? (
         <FloatingDesktopPanel
           id="layers"
-          resolvePosition={() => ({
-            left: 16,
+          resolvePosition={({ dir, panelWidth, viewportWidth }) => ({
+            left:
+              dir === "rtl"
+                ? viewportWidth - panelWidth - PANEL_EDGE_OFFSET
+                : PANEL_EDGE_OFFSET,
             top: 76,
           })}
         >

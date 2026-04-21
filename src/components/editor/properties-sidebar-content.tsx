@@ -589,7 +589,7 @@ export function SelectedLayerPropertiesContent({
                       {group.collapsible ? (
                         <button
                           aria-expanded={isExpanded}
-                          className="inline-flex min-h-0 cursor-pointer items-center bg-transparent p-0 text-left text-inherit transition-[background-color,color,transform] duration-120 ease-[ease] hover:text-[var(--ds-color-text-primary)] active:scale-[0.99]"
+                          className="inline-flex min-h-0 cursor-pointer items-center bg-transparent p-0 text-start text-inherit transition-[background-color,color,transform] duration-120 ease-[ease] hover:text-[var(--ds-color-text-primary)] active:scale-[0.99]"
                           onClick={() => onToggleParamGroup(groupKey)}
                           type="button"
                         >
